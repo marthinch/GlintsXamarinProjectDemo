@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Demo.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Demo.ViewModels"
+    x:DataType="viewmodels:LoginViewModel">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="400">
+            <Label FontSize="Large" Text="Halaman Login" />
+
+            <Label FontSize="Large" Text="Username" />
+            <Entry
+                FontSize="Large"
+                Placeholder="Masukkan username"
+                Text="{Binding Username}" />
+            <Label
+                FontSize="Large"
+                IsVisible="{Binding IsUsernameError}"
+                Text="Username tidak valid"
+                TextColor="Red" />
+
+            <Label FontSize="Large" Text="Password" />
+            <Entry
+                FontSize="Large"
+                Placeholder="Masukkan password"
+                Text="{Binding Password}" />
+
+            <Button Command="{Binding MasukCommand}" Text="Masuk" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
